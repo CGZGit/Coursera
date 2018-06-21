@@ -1,0 +1,25 @@
+select * from tracks 
+where milliseconds >= 5000000
+
+select * from invoices 
+where total>=5 and total<=15
+
+select * from customers where state in ('RJ','DF','AB','BC','CA','WA','NY')
+
+select * from invoices where customerid in (56,58) and total>=1 and total<=5
+
+select * from tracks where name like 'All%'
+
+select * from customers where email like 'J%gmail.com'
+
+select * from invoices where BillingCity in ('Brasilia','Edmonton','Vancouver') order by invoiceid desc
+
+select count (customerid) as OrderAmount, customerid 
+from invoices
+ group by customerid 
+order by OrderAmount desc
+
+select count (albumid) as tracknum, albumid 
+from tracks 
+group by albumid 
+having tracknum >= 12
