@@ -1,0 +1,37 @@
+select customerid,lastname,firstname,address,
+UPPER(city||' '||country) 
+from customers
+
+select lower(substr(firstname,1,2)||substr(firstname,1,4)) as NewId
+ from employees
+
+select employeeid,firstname,lastname
+
+from employees
+
+where strftime('%Y','now')-strftime('%Y',hiredate)>=15
+
+order by lastname asc
+
+select *
+ from customers
+ WHERE customerid IS NULL
+
+select city,count(customerid) as CNum
+ from customers 
+group by city 
+ORDER BY CNum DESC;
+
+select c.firstname||c.lastname||i.invoiceid
+
+
+from invoices as i
+
+
+left join customers as c
+
+
+on c.customerid=i.customerid
+
+
+order by c.firstname,c.lastname,i.invoiceid
