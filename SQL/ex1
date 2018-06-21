@@ -1,0 +1,28 @@
+select *
+from Employees
+
+where firstname='Robert'
+
+select address
+,firstname,lastname
+
+from Employees
+
+where firstname='Robert'
+
+select firstname
+
+,lastname
+
+,birthdate
+
+,address
+
+,city
+
+,state
+
+from Employees;
+
+select * from tracks limit 20
+select name,Milliseconds from tracks where trackid=5
