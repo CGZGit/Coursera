@@ -1,0 +1,32 @@
+select name
+ from tracks 
+where albumid=(select albumid from albums where title='Californication')
+
+select Customers.FirstName,Customers.LastName,Customers.City,Customers.email,T1.InvoiceNumber 
+
+from Customers
+ 
+inner join (select CustomerID,count (InvoiceId) as InvoiceNumber from Invoices group by CustomerId) as T1 
+
+on Customers.CustomerID = T1.CustomerID
+
+select Tracks.Name,Albums.Title,Albums.ArtistId,Tracks.TrackId
+ 
+from Albums
+ 
+left join Tracks 
+on Albums.AlbumId=Tracks.AlbumId
+
+SELECT A.LastName AS ManagerLastName, B.LastName AS EmployeeLastName
+FROM Employees B
+left join Employees A on B.ReportsTo=A.EmployeeID
+
+SELECT ArtistId,Name
+FROM Artists
+WHERE not EXISTS 
+(SELECT ArtistId FROM Albums WHERE ArtistId = Artists.ArtistId)
+
+SELECT CustomerId
+FROM Customers
+WHERE not EXISTS 
+(SELECT CustomerId FROM Invoices WHERE BillingCity = Customers.City)
